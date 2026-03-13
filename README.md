@@ -1,0 +1,1 @@
+# 124250006_AkmaSyafitri_Tugas1
