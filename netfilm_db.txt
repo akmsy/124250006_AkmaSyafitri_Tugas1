@@ -1,0 +1,42 @@
+Harry Potter;100000;2001;9.0
+The Dark Knight;50000;2008;9.0
+Inception;50000;2010;8.8
+Interstellar;55000;2014;8.7
+The Matrix;52000;1999;8.7
+Joker;52000;2019;8.5
+Avengers Endgame;65000;2019;8.4
+Coco;44000;2017;8.4
+Toy Story 3;45000;2010;8.3
+Toy Story;40000;1995;8.3
+Spiderman No Way Home;60000;2021;8.2
+Guardians Galaxy 3;58000;2023;8.1
+Guardians Galaxy;52000;2014;8.0
+Soul;45000;2020;8.0
+Thor Ragnarok;52000;2017;7.9
+Titanic;45000;1997;7.9
+Iron Man;50000;2008;7.9
+Toy Story 2;42000;1999;7.9
+Captain America Winter Soldier;53000;2014;7.8
+Captain America Civil War;55000;2016;7.8
+John Wick 3;56000;2019;7.7
+Toy Story 4;47000;2019;7.7
+Moana;43000;2016;7.6
+Guardians Galaxy 2;54000;2017;7.6
+Spiderman Far From Home;52000;2019;7.5
+John Wick 2;54000;2017;7.5
+Doctor Strange;52000;2016;7.5
+Spiderman Homecoming;50000;2017;7.4
+Frozen;40000;2013;7.4
+JohnWick;52000;2014;7.4
+Black Panther;53000;2018;7.3
+Matrix Reloaded;50000;2003;7.2
+Iron Man 3;49000;2013;7.1
+Doctor Strange 2;54000;2022;6.9
+Captain America;50000;2011;6.9
+Iron Man 2;48000;2010;6.9
+Matrix Revolutions;48000;2003;6.8
+Frozen 2;42000;2019;6.8
+Black Widow;50000;2021;6.7
+Thor Love And Thunder;54000;2022;6.2Moana 2;70000;2024;8.5
+Jumanji;50000;2017;7.0
+Harry Potter and the Chamber of Secrets ;70000;2002;6.0
