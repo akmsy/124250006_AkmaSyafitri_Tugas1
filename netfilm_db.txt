@@ -40,3 +40,4 @@ Black Widow;50000;2021;6.7
 Thor Love And Thunder;54000;2022;6.2Moana 2;70000;2024;8.5
 Jumanji;50000;2017;7.0
 Harry Potter and the Chamber of Secrets ;70000;2002;6.0
+

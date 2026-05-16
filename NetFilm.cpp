@@ -338,30 +338,78 @@ void binarySearch() {
     }
 }
 
-// fungsi tambah film baru 
-void tambahData(int jmlData) {
-    FILE *file = fopen(dbFilm.c_str(), "a");
-    if (!file) {
-        cout << "ERROR: File tidak bisa dibuka!\n";
-        return;
-    }
+// hitung jumlah data
+int hitungData() {
+    FILE *file = fopen(dbFilm.c_str(), "r");
+    if (!file) return 0;
 
+    int n = 0;
     Film row;
-    cin.ignore();
 
-    for (int i = 0; i < jmlData; i++) {
-        cout << "\nData ke-" << i + 1 << " : \n";
-        cout << "Judul Film : "; cin.getline(row.name, 100);
-        cout << "Harga      : "; cin >> row.price;
-        cout << "Tahun      : "; cin >> row.year;
-        cout << "Rating     : "; cin >> row.rating;
-        cin.ignore();
-        fprintf(file, "%s;%.0lf;%d;%.1f\n", row.name, row.price, row.year, row.rating);
+    while (fscanf(file, "%[^;];%lf;%d;%f\n",
+        row.name, &row.price, &row.year, &row.rating) != EOF) {
+        n++;
     }
 
     fclose(file);
-    cout << "[ SUCCESS ] Data berhasil disinkronkan ke netfilm_db.txt\n"
-         << "[ SUCCESS ] Film ditambahkan.\n\n";
+    return n;
+}
+
+// fungsi tambah film baru 
+void tambahData(int jmlData) {
+    int kapasitas = 100;
+    int terpakai = hitungData();
+    int sisa = kapasitas - terpakai;
+
+    if (jmlData > sisa) {
+        cout << "[!] Data tidak cukup!\n";
+        cout << "Kapasitas tersisa: " << sisa << endl;
+        cout << "Kamu mencoba input: " << jmlData << endl;
+    } else {
+        FILE *file = fopen(dbFilm.c_str(), "a");
+        if (!file) {
+            cout << "ERROR: File tidak bisa dibuka!\n";
+            return;
+        }
+
+        Film row;
+        cin.ignore();
+
+        for (int i = 0; i < jmlData; i++) {
+            cout << "\nData ke-" << i + 1 << " : \n";
+            cout << "Judul Film : "; cin.getline(row.name, 100);
+            cout << "Harga      : ";
+            while (!(cin >> row.price) || row.price <= 0) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "[!] Harga harus berupa angka dan > 0.\n";
+                cout << "Harga      : ";
+            }
+            cout << "Tahun      : ";
+            while (!(cin >> row.year)) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "[!] Tahun harus berupa angka.\n";
+                cout << "Tahun      : ";
+            }
+            cout << "Rating     : "; 
+            while (!(cin >> row.rating) || row.rating <= 0) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "[!] Rating harus berupa angka > 0\n";
+                cout << "Rating     : "; 
+            }
+
+            cin.ignore();
+            fprintf(file, "%s;%.0lf;%d;%.1f\n", row.name, row.price, row.year, row.rating);
+        }
+
+        fclose(file);
+        cout << "[ SUCCESS ] Data berhasil disinkronkan ke netfilm_db.txt\n"
+            << "[ SUCCESS ] Film ditambahkan.\n\n";
+        cout << "Tekan Enter untuk melanjutkan..."; cin.get(); system("cls");
+    }
+    cin.ignore();
     cout << "Tekan Enter untuk melanjutkan..."; cin.get(); system("cls");
 }
 
